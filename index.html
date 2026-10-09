@@ -92,16 +92,17 @@ body.ph-flash .ph{animation:phFlash 1.2s ease 2}
 
 /* Header */
 .site-head{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:40;color:var(--salt);height:0;overflow:visible}
-.head-in{position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:66px;padding:0 10px 0 22px;margin-top:12px;background:rgba(16,17,16,.88);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid var(--line-dark);border-radius:999px;box-shadow:0 10px 30px rgba(16,17,16,.18)}
+.head-in{position:relative;display:flex;align-items:center;justify-content:flex-start;gap:clamp(20px,3vw,44px);min-height:66px;padding:0 10px 0 22px;margin-top:12px;background:rgba(16,17,16,.88);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid var(--line-dark);border-radius:999px;box-shadow:0 10px 30px rgba(16,17,16,.18)}
 .brand{display:block;width:54px;flex:none;text-decoration:none;transition:opacity .3s ease, transform .3s ease}
 .brand svg{width:100%;height:auto;display:block}
 body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
-.nav{display:flex;align-items:center;gap:clamp(10px,2vw,28px)}
+.nav{display:flex;align-items:center;gap:clamp(10px,2vw,28px);flex:1}
+.nav .btn{margin-left:auto}
 .nav a{text-decoration:none;font-weight:700;font-size:1.02rem;position:relative;padding-block:6px}
 .nav a.navlink::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--lime);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
 .nav a.navlink:hover::after,.nav a.navlink[aria-current="page"]::after{transform:scaleX(1)}
 .nav .btn{padding:.7em 1.1em;font-size:.98rem}
-.menu-btn{display:none;background:var(--lime);border:none;color:var(--night);border-radius:999px;font:700 1rem var(--display);padding:.7em 1.2em;cursor:pointer}
+.menu-btn{margin-left:auto;display:none;background:var(--lime);border:none;color:var(--night);border-radius:999px;font:700 1rem var(--display);padding:.7em 1.2em;cursor:pointer}
 @media (max-width:1120px){
   .menu-btn{display:inline-flex}
   .nav{position:absolute;left:0;right:0;top:calc(100% + 8px);background:var(--night);flex-direction:column;align-items:flex-start;padding:18px 24px 24px;gap:6px;border:1px solid var(--line-dark);border-radius:24px;box-shadow:0 20px 40px rgba(16,17,16,.3)}
@@ -546,7 +547,6 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
         <button class="replay" id="replay" type="button">↻ Replay</button>
       </div>
       <div class="hero-copy">
-        <p class="eyebrow">Energy transition · HAN public private partnership</p>
         <h1 class="h-xl mix">Where challenges become <b>possibilities.</b></h1>
         <p class="lede">Students, lecturers, researchers and organisations working together on real challenges in the energy transition.</p>
         <div class="who">
