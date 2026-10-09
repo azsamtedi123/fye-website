@@ -609,10 +609,12 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
 @media (max-width:640px){.logo-tile{width:150px;height:80px;padding:12px 16px}.logo-tile img{max-height:44px}}
 
 /* Language switch */
-.lang-btn{flex:none;order:3;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line-dark);background:transparent;color:var(--salt);font:800 .92rem var(--display);letter-spacing:.04em;cursor:pointer;transition:background .2s ease,color .2s ease}
+.lang-btn{flex:none;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line-dark);background:transparent;color:var(--salt);font:800 .92rem var(--display);letter-spacing:.04em;cursor:pointer;transition:background .2s ease,color .2s ease}
 .lang-btn:hover{background:var(--salt);color:var(--night)}
-.nav{order:2}
-@media (max-width:1120px){.lang-btn{order:2;width:42px;height:42px}.menu-btn{order:3;margin-left:0}.head-in .brand{margin-right:auto}}
+.lang-m{display:none}
+.nav .lang-d{margin-left:auto}
+.nav .lang-d + .btn{margin-left:0}
+@media (max-width:1120px){.lang-m{display:inline-block;width:42px;height:42px;order:2}.lang-d{display:none}.menu-btn{order:3;margin-left:0}.head-in .brand{margin-right:auto}}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
@@ -657,7 +659,7 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
       <svg viewBox="0 0 720 609.2" role="img" aria-label="Future (y)our Energy"><use href="#wm-text" fill="#FAFAF8"/><use href="#wm-arcs" fill="#C8D400"/></svg>
     </a>
     <button class="menu-btn" id="menuBtn" data-dyn aria-expanded="false" aria-controls="nav">Menu</button>
-    <button class="lang-btn" id="langBtn" data-dyn type="button" aria-label="Nederlands" lang="nl">NL</button>
+    <button class="lang-btn lang-m" data-dyn type="button" aria-label="Nederlands" lang="nl">NL</button>
     <nav class="nav" id="nav" aria-label="Main">
       <a class="navlink" href="#about">About us</a>
       <a class="navlink" href="#mission">Mission &amp; vision</a>
@@ -665,6 +667,7 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
       <a class="navlink" href="#companies">For organisations</a>
       <a class="navlink" href="#projects">Projects</a>
       <a class="navlink" href="#testimonials">Testimonials</a>
+      <button class="lang-btn lang-d" data-dyn type="button" aria-label="Nederlands" lang="nl">NL</button>
       <a class="btn btn-lime" href="#contact">Get in touch</a>
     </nav>
   </div></div>
@@ -1537,12 +1540,11 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
       else n.nodeValue=raw;
     }
     document.querySelectorAll(ATTRS.map(a=>'['+a+']').join(',')).forEach(el=>{
-      if(el.closest('[data-dyn]')&&el.id!=='langBtn')return;
+      if(el.closest('[data-dyn]'))return;
       el.__enA=el.__enA||{};
       ATTRS.forEach(a=>{if(!el.hasAttribute(a))return;if(el.__enA[a]==null)el.__enA[a]=el.getAttribute(a);const en=el.__enA[a];el.setAttribute(a,LANG==='nl'&&NL[en]!=null?NL[en]:en);});
     });
-    const lb=document.getElementById('langBtn');
-    lb.textContent=LANG==='nl'?'EN':'NL';lb.setAttribute('aria-label',LANG==='nl'?'English':'Nederlands');lb.setAttribute('lang',LANG==='nl'?'en':'nl');
+    document.querySelectorAll('.lang-btn').forEach(lb=>{lb.textContent=LANG==='nl'?'EN':'NL';lb.setAttribute('aria-label',LANG==='nl'?'English':'Nederlands');lb.setAttribute('lang',LANG==='nl'?'en':'nl');});
     document.title=LANG==='nl'?'Future (y)our Energy | Echte uitdagingen uit de energietransitie':'Future (y)our Energy';
     if(window.__fyeRefresh)window.__fyeRefresh();
   }
@@ -1753,11 +1755,11 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
     flowNote.textContent=T(flowStd?'With a standard foundation: the foundation stays in place and only the charging station is swapped.':'Today: four steps, even when the old foundation could last much longer.');
     document.getElementById('phToggle').textContent=T('Highlight placeholders');
   };
-  document.getElementById('langBtn').addEventListener('click',()=>{
+  document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>{
     LANG=LANG==='nl'?'en':'nl';
     try{localStorage.setItem('fye-lang',LANG);}catch(e){}
     applyLang();
-  });
+  }));
   if(LANG==='nl')applyLang();
 
   route();
