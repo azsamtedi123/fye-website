@@ -599,6 +599,15 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
   .lede{font-size:1.15rem}
 }
 
+/* Partner logo marquee */
+.logos{overflow:hidden;margin-top:18px;padding-block:6px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.logos-track{display:flex;gap:16px;width:max-content;animation:film 55s linear infinite}
+.logos:hover .logos-track{animation-play-state:paused}
+.logo-tile{flex:none;width:clamp(170px,18vw,230px);height:clamp(88px,9vw,112px);background:#fff;border:1px solid var(--line);border-radius:18px;display:grid;place-items:center;padding:16px 24px}
+.logo-tile img{max-width:100%;max-height:56px;width:auto;height:auto;object-fit:contain}
+.logo-tile.you{background:transparent;border:2px dashed var(--night);font-weight:800;font-size:1.15rem;color:var(--night)}
+@media (max-width:640px){.logo-tile{width:150px;height:80px;padding:12px 16px}.logo-tile img{max-height:44px}}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
 }
@@ -829,10 +838,7 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
 
   <section class="band mist names-band">
     <div class="wrap"><p class="eyebrow">Working together with</p></div>
-    <div class="names" aria-label="HAN, Radboud University, ROC Nijmegen, Aventus, Alliander, ElaadNL"><div class="names-track" aria-hidden="true">
-      <span>HAN</span><i></i><span>Radboud University</span><i></i><span>ROC Nijmegen</span><i></i><span>Aventus</span><i></i><span class="o">Alliander</span><i></i><span class="o">ElaadNL</span><i></i><span class="o">Your organisation?</span><i></i>
-      <span>HAN</span><i></i><span>Radboud University</span><i></i><span>ROC Nijmegen</span><i></i><span>Aventus</span><i></i><span class="o">Alliander</span><i></i><span class="o">ElaadNL</span><i></i><span class="o">Your organisation?</span><i></i>
-    </div></div>
+    <div class="logos" role="img" aria-label="Partners: HAN University of Applied Sciences, Alliander, Radboud Universiteit, Gemeente Arnhem, ROC Nijmegen, Aventus, The Economic Board, Rijn IJssel, ElaadNL, Yuverta, Van Hall Larenstein"><div class="logos-track"><span class="logo-tile"><img src="img/logos/logo-han.svg" alt="" loading="lazy"></span><span class="logo-tile"><img src="img/logos/logo-alliander.svg" alt="" loading="lazy"></span><span class="logo-tile"><img src="img/logos/logo-radboud-universiteit.svg" alt="" loading="lazy"></span><span class="logo-tile"><img src="img/logos/logo-arnhem.svg" alt="" loading="lazy"></span><span class="logo-tile"><img src="img/logos/logo-roc-nijmegen.svg" alt="" loading="lazy"></span><span class="logo-tile"><img src="img/logos/logo-aventus.svg" alt="" loading="lazy"></span><span class="logo-tile"><img src="img/logos/logo-economic-board.png" alt="" loading="lazy"></span><span class="logo-tile"><img src="img/logos/logo-rijn-ijssel.svg" alt="" loading="lazy"></span><span class="logo-tile"><img src="img/logos/logo-elaadnl.png" alt="" loading="lazy"></span><span class="logo-tile"><img src="img/logos/logo-yuverta.svg" alt="" loading="lazy"></span><span class="logo-tile"><img src="img/logos/logo-van-hall-larenstein.svg" alt="" loading="lazy"></span><span class="logo-tile you">Your organisation?</span><span class="logo-tile"><img src="img/logos/logo-han.svg" alt="" loading="lazy"></span><span class="logo-tile"><img src="img/logos/logo-alliander.svg" alt="" loading="lazy"></span><span class="logo-tile"><img src="img/logos/logo-radboud-universiteit.svg" alt="" loading="lazy"></span><span class="logo-tile"><img src="img/logos/logo-arnhem.svg" alt="" loading="lazy"></span><span class="logo-tile"><img src="img/logos/logo-roc-nijmegen.svg" alt="" loading="lazy"></span><span class="logo-tile"><img src="img/logos/logo-aventus.svg" alt="" loading="lazy"></span><span class="logo-tile"><img src="img/logos/logo-economic-board.png" alt="" loading="lazy"></span><span class="logo-tile"><img src="img/logos/logo-rijn-ijssel.svg" alt="" loading="lazy"></span><span class="logo-tile"><img src="img/logos/logo-elaadnl.png" alt="" loading="lazy"></span><span class="logo-tile"><img src="img/logos/logo-yuverta.svg" alt="" loading="lazy"></span><span class="logo-tile"><img src="img/logos/logo-van-hall-larenstein.svg" alt="" loading="lazy"></span><span class="logo-tile you">Your organisation?</span></div></div>
     <div class="wrap split top" style="margin-top:clamp(28px,4vw,48px)">
       <div class="stack">
         <p class="eyebrow">Partner institutions</p>
