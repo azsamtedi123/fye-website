@@ -608,6 +608,12 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
 .logo-tile.you{background:transparent;border:2px dashed var(--night);font-weight:800;font-size:1.15rem;color:var(--night)}
 @media (max-width:640px){.logo-tile{width:150px;height:80px;padding:12px 16px}.logo-tile img{max-height:44px}}
 
+/* Language switch */
+.lang-btn{flex:none;order:3;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line-dark);background:transparent;color:var(--salt);font:800 .92rem var(--display);letter-spacing:.04em;cursor:pointer;transition:background .2s ease,color .2s ease}
+.lang-btn:hover{background:var(--salt);color:var(--night)}
+.nav{order:2}
+@media (max-width:1120px){.lang-btn{order:2;width:42px;height:42px}.menu-btn{order:3;margin-left:0}.head-in .brand{margin-right:auto}}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
 }
@@ -650,7 +656,8 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
     <a class="brand" href="#home" aria-label="Future (y)our Energy, home">
       <svg viewBox="0 0 720 609.2" role="img" aria-label="Future (y)our Energy"><use href="#wm-text" fill="#FAFAF8"/><use href="#wm-arcs" fill="#C8D400"/></svg>
     </a>
-    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <button class="menu-btn" id="menuBtn" data-dyn aria-expanded="false" aria-controls="nav">Menu</button>
+    <button class="lang-btn" id="langBtn" data-dyn type="button" aria-label="Nederlands" lang="nl">NL</button>
     <nav class="nav" id="nav" aria-label="Main">
       <a class="navlink" href="#about">About us</a>
       <a class="navlink" href="#mission">Mission &amp; vision</a>
@@ -730,7 +737,7 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
           <button class="lcc-w" role="tab" aria-selected="false" data-img="team-17" data-txt="Students, lecturers, researchers and organisations from different fields work on one challenge, so it is never looked at from just one perspective.">Connect.</button>
           <button class="lcc-w" role="tab" aria-selected="false" data-img="team-5" data-txt="Ideas turn into research, prototypes and advice that organisations can actually use, from energy and technology to business and design.">Create.</button>
         </div>
-        <p class="lede lcc-txt" id="lccTxt" aria-live="polite">Students learn by doing. Working on a real challenge shows them where their knowledge gaps are, and where their learning should start.</p>
+        <p class="lede lcc-txt" id="lccTxt" data-dyn aria-live="polite">Students learn by doing. Working on a real challenge shows them where their knowledge gaps are, and where their learning should start.</p>
       </div>
       <div class="lcc-shot"><img id="lccImg" src="img/team-14.jpg" alt="" ><img id="lccImg2" src="img/team-14.jpg" alt="" class="next"></div>
     </div>
@@ -899,8 +906,8 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
         </div>
         <div class="tabpanel" role="tabpanel" id="tp" aria-labelledby="t-st">
           <div class="tp-img"><img id="tpImg" src="img/team-19.jpg" alt="" loading="lazy"></div>
-          <span class="big" id="tpBig">Curiosity</span>
-          <p id="tpTxt">Students bring curiosity and new perspectives. They work on challenges with a real purpose and find out where their knowledge gaps are, and where their learning should start.</p>
+          <span class="big" id="tpBig" data-dyn>Curiosity</span>
+          <p id="tpTxt" data-dyn>Students bring curiosity and new perspectives. They work on challenges with a real purpose and find out where their knowledge gaps are, and where their learning should start.</p>
         </div>
       </div>
     </div>
@@ -1129,7 +1136,7 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
         </div>
         <div class="inst-out" aria-live="polite">
           <span class="eyebrow">Your FyE ambassador at</span>
-          <h3 id="instName">HAN University of Applied Sciences</h3>
+          <h3 id="instName" data-dyn>HAN University of Applied Sciences</h3>
           <span class="ph">Ambassador name, role and email for this institution</span>
           <p style="color:var(--ink-soft)">Or contact the FyE team directly at <b style="user-select:all">energietransitie@han.nl</b></p>
         </div>
@@ -1199,7 +1206,7 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
       </div>
       <div class="picker">
         <div class="picks" role="group" aria-label="Challenge topics" id="picks"></div>
-        <div class="pick-out" aria-live="polite"><span class="who-t" id="pickWho"></span><p class="h-s" style="color:var(--salt);font-weight:700" id="pickQ"></p><p id="pickTxt"></p></div>
+        <div class="pick-out" aria-live="polite"><span class="who-t" id="pickWho" data-dyn></span><p class="h-s" style="color:var(--salt);font-weight:700" id="pickQ" data-dyn></p><p id="pickTxt" data-dyn></p></div>
       </div>
     </div>
   </section>
@@ -1411,7 +1418,7 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
         <div class="flow-step" data-std="skip"><span class="n">STEP 3</span><b>New grid connection</b><span>Renew the connection to the grid</span></div>
         <div class="flow-step" data-std="keep"><span class="n">STEP 4</span><b>New charging station</b><span>Install the replacement</span></div>
       </div>
-      <p class="flow-note" id="flowNote">Today: four steps, even when the old foundation could last much longer.</p>
+      <p class="flow-note" id="flowNote" data-dyn>Today: four steps, even when the old foundation could last much longer.</p>
     </div>
   </section>
   <section class="band">
@@ -1503,15 +1510,43 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
     </div>
     <div class="foot-bottom">
       <span>Concept by Valerie Kemunto, Teodor Popov, Kady Shidime, Hootan Maat, Virág Csikai and Roy · Landscape photos: Unsplash</span>
-      <button class="ph-toggle" id="phToggle" type="button">Highlight placeholders</button>
+      <button class="ph-toggle" id="phToggle" data-dyn type="button">Highlight placeholders</button>
     </div>
   </div>
 </footer>
 
 <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo"><img id="lbImg" alt=""><button id="lbClose" type="button">Close ✕</button></div>
 
+<script src="i18n-nl.js"></script>
 <script>
 (function(){
+  // ---- Language ----
+  const NL=window.FYE_NL||{};
+  let LANG='en';
+  try{const q=new URLSearchParams(location.search).get('lang');LANG=(q||localStorage.getItem('fye-lang')||'en')==='nl'?'nl':'en';}catch(e){}
+  const T=en=>LANG==='nl'&&NL[en]!=null?NL[en]:en;
+  const ATTRS=['alt','aria-label','title','data-txt','data-big','data-inst'];
+  function applyLang(){
+    document.documentElement.lang=LANG;
+    const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:n=>{const p=n.parentElement;if(!p||p.closest('script,style,svg,[data-dyn]'))return 2;return n.nodeValue.trim()?1:2;}});
+    let n;
+    while((n=w.nextNode())){
+      if(n.__en==null)n.__en=n.nodeValue;
+      const raw=n.__en,key=raw.replace(/\s+/g,' ').trim();
+      if(LANG==='nl'&&NL[key]!=null){const lead=raw.match(/^\s*/)[0],trail=raw.match(/\s*$/)[0];n.nodeValue=lead+NL[key]+trail;}
+      else n.nodeValue=raw;
+    }
+    document.querySelectorAll(ATTRS.map(a=>'['+a+']').join(',')).forEach(el=>{
+      if(el.closest('[data-dyn]')&&el.id!=='langBtn')return;
+      el.__enA=el.__enA||{};
+      ATTRS.forEach(a=>{if(!el.hasAttribute(a))return;if(el.__enA[a]==null)el.__enA[a]=el.getAttribute(a);const en=el.__enA[a];el.setAttribute(a,LANG==='nl'&&NL[en]!=null?NL[en]:en);});
+    });
+    const lb=document.getElementById('langBtn');
+    lb.textContent=LANG==='nl'?'EN':'NL';lb.setAttribute('aria-label',LANG==='nl'?'English':'Nederlands');lb.setAttribute('lang',LANG==='nl'?'en':'nl');
+    document.title=LANG==='nl'?'Future (y)our Energy | Echte uitdagingen uit de energietransitie':'Future (y)our Energy';
+    if(window.__fyeRefresh)window.__fyeRefresh();
+  }
+
   const views=[...document.querySelectorAll('[data-view]')];
   const navLinks=[...document.querySelectorAll('.navlink')];
   const nav=document.getElementById('nav'), menuBtn=document.getElementById('menuBtn');
@@ -1531,7 +1566,7 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
     views.forEach(v=>{v.hidden=v.dataset.view!==id; if(!v.hidden){v.classList.remove('view');void v.offsetWidth;v.classList.add('view');}});
     const cur=parentOf[id]||id;
     navLinks.forEach(a=>a.getAttribute('href')==='#'+cur?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
-    nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='Menu';
+    nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent=T('Menu');
     window.scrollTo(0,0);
     document.body.classList.toggle('on-hero',id==='home');
     if(id==='home'){ if(!heroPlayed){playHero();heroPlayed=true;} startPulse(); } else stopPulse();
@@ -1542,7 +1577,7 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
     show(h||'home');
   }
   window.addEventListener('hashchange',route);
-  menuBtn.addEventListener('click',()=>{const o=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o);menuBtn.textContent=o?'Close':'Menu';});
+  menuBtn.addEventListener('click',()=>{const o=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o);menuBtn.textContent=T(o?'Close':'Menu');});
 
   // Show the small header wordmark only once the hero wordmark scrolls away
   const hero=document.getElementById('hero');
@@ -1614,7 +1649,7 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
   // Institution selector
   document.querySelectorAll('.inst-btn').forEach(b=>b.addEventListener('click',()=>{
     document.querySelectorAll('.inst-btn').forEach(x=>x.setAttribute('aria-pressed',x===b));
-    document.getElementById('instName').textContent=b.dataset.inst;
+    document.getElementById('instName').textContent=b.getAttribute('data-inst');
   }));
 
   // Challenge picker (topics drawn from the persona and case studies)
@@ -1628,7 +1663,7 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
   ];
   const picks=document.getElementById('picks');
   topics.forEach((o,i)=>{const b=document.createElement('button');b.className='pick';b.type='button';b.textContent=o.t;b.setAttribute('aria-pressed',i===0);b.onclick=()=>pick(i);picks.appendChild(b);});
-  function pick(i){const o=topics[i];[...picks.children].forEach((b,j)=>b.setAttribute('aria-pressed',j===i));document.getElementById('pickWho').textContent='Who could work on it: '+o.w;document.getElementById('pickQ').textContent=o.q;document.getElementById('pickTxt').textContent=o.x;}
+  function pick(i){const o=topics[i];[...picks.children].forEach((b,j)=>b.setAttribute('aria-pressed',j===i));document.getElementById('pickWho').textContent=T('Who could work on it:')+' '+T(o.w);document.getElementById('pickQ').textContent=T(o.q);document.getElementById('pickTxt').textContent=T(o.x);}
   pick(0);
 
   // Transformer house explorer
@@ -1638,12 +1673,12 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
   }));
 
   // Replace-a-station toggle
-  const flowNote=document.getElementById('flowNote');
+  const flowNote=document.getElementById('flowNote');let flowStd=false;
   document.querySelectorAll('.toggle button').forEach(b=>b.addEventListener('click',()=>{
     document.querySelectorAll('.toggle button').forEach(x=>x.setAttribute('aria-pressed',x===b));
     const std=b.dataset.mode==='std';
     document.querySelectorAll('#flow .flow-step').forEach(s=>{s.classList.toggle('skip',std&&s.dataset.std==='skip');s.classList.toggle('keep',std&&s.dataset.std==='keep');});
-    flowNote.textContent=std?'With a standard foundation: the foundation stays in place and only the charging station is swapped.':'Today: four steps, even when the old foundation could last much longer.';
+    flowStd=std;flowNote.textContent=T(std?'With a standard foundation: the foundation stays in place and only the charging station is swapped.':'Today: four steps, even when the old foundation could last much longer.');
   }));
 
   // Lightbox
@@ -1657,7 +1692,7 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
   // Copy buttons
   document.addEventListener('click',e=>{
     const b=e.target.closest('.copy');if(!b)return;
-    const done=()=>{const t=b.textContent;b.textContent='Copied';b.classList.add('ok');setTimeout(()=>{b.textContent=t;b.classList.remove('ok');},1600);};
+    const done=()=>{const t=b.textContent;b.textContent=T('Copied');b.classList.add('ok');setTimeout(()=>{b.textContent=t;b.classList.remove('ok');},1600);};
     const sel=()=>{const v=b.parentElement.querySelector('.val');const r=document.createRange();r.selectNodeContents(v);const s=getSelection();s.removeAllRanges();s.addRange(r);};
     try{navigator.clipboard.writeText(b.dataset.copy).then(done,sel);}catch(err){sel();}
   });
@@ -1666,8 +1701,8 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
   document.getElementById('phToggle').addEventListener('click',()=>{
     const n=document.querySelectorAll('[data-view]:not([hidden]) .ph').length;
     document.body.classList.remove('ph-flash');void document.body.offsetWidth;document.body.classList.add('ph-flash');
-    const b=document.getElementById('phToggle');b.textContent=n+' placeholder'+(n===1?'':'s')+' on this page';
-    setTimeout(()=>{b.textContent='Highlight placeholders';},2600);
+    const b=document.getElementById('phToggle');b.textContent=LANG==='nl'?n+' placeholder'+(n===1?'':'s')+' op deze pagina':n+' placeholder'+(n===1?'':'s')+' on this page';
+    setTimeout(()=>{b.textContent=T('Highlight placeholders');},2600);
   });
 
   // Testimonials filter
@@ -1707,6 +1742,23 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
     }),{threshold:.4});
     io.observe(document.getElementById('nums'));
   }
+
+  // Re-render the pieces scripts write, in the current language
+  window.__fyeRefresh=()=>{
+    menuBtn.textContent=T(nav.classList.contains('open')?'Close':'Menu');
+    const pi=[...picks.children].findIndex(b=>b.getAttribute('aria-pressed')==='true');pick(pi<0?0:pi);
+    const lw=lccW.find(x=>x.getAttribute('aria-selected')==='true');if(lw)lccTxt.textContent=lw.getAttribute('data-txt');
+    const tb=tabs.find(x=>x.getAttribute('aria-selected')==='true');if(tb){document.getElementById('tpBig').textContent=tb.getAttribute('data-big');document.getElementById('tpTxt').textContent=tb.getAttribute('data-txt');}
+    const ib=document.querySelector('.inst-btn[aria-pressed="true"]');if(ib)document.getElementById('instName').textContent=ib.getAttribute('data-inst');
+    flowNote.textContent=T(flowStd?'With a standard foundation: the foundation stays in place and only the charging station is swapped.':'Today: four steps, even when the old foundation could last much longer.');
+    document.getElementById('phToggle').textContent=T('Highlight placeholders');
+  };
+  document.getElementById('langBtn').addEventListener('click',()=>{
+    LANG=LANG==='nl'?'en':'nl';
+    try{localStorage.setItem('fye-lang',LANG);}catch(e){}
+    applyLang();
+  });
+  if(LANG==='nl')applyLang();
 
   route();
 })();
