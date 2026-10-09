@@ -516,7 +516,7 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
   <section class="hero" id="hero">
     <canvas id="pulse" aria-hidden="true"></canvas>
     <div class="wrap hero-grid">
-      <div class="hero-mark" id="heroMark" title="Hover to charge, click to replay">
+      <div class="hero-mark" id="heroMark" title="Click to replay the animation">
         <svg id="hm" viewBox="-30 -20 780 650" role="img" aria-label="Future (y)our Energy">
           <g class="words" fill="#FAFAF8">
             <path d="M132.7,0v28.5h-54v30.1h54v28.7h-53.7v59.9h-33.2V0h87Z"/>
@@ -556,7 +556,6 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
             <a class="who-opt" href="#companies"><b>An organisation →</b><span>Bring a challenge, meet tomorrow's talent</span></a>
           </div>
         </div>
-        <p class="hint">Tip: click anywhere in this panel to send a pulse.</p>
       </div>
     </div>
   </section>
@@ -1408,10 +1407,9 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
     raf=pulses.length?requestAnimationFrame(tick):0;
     if(!raf)ctx.clearRect(0,0,W,H);
   }
-  function startPulse(){size();clearInterval(idleT);if(reduce)return;idleT=setInterval(()=>{if(!document.hidden)emit();},3200);}
+  function startPulse(){size();}
   function stopPulse(){clearInterval(idleT);}
   addEventListener('resize',size);
-  hero.addEventListener('click',e=>{if(e.target.closest('a,button'))return;const h=hero.getBoundingClientRect();emit({x:e.clientX-h.left,y:e.clientY-h.top,r0:10},1.2);});
 
   // Testimonials
   const qs=[...document.querySelectorAll('[data-q]')],dots=document.getElementById('qDots');let qi=0,qT;
