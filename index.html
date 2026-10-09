@@ -108,6 +108,7 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
   .nav{position:absolute;left:0;right:0;top:calc(100% + 8px);background:var(--night);flex-direction:column;align-items:flex-start;padding:18px 24px 24px;gap:6px;border:1px solid var(--line-dark);border-radius:24px;box-shadow:0 20px 40px rgba(16,17,16,.3)}
   .nav:not(.open){display:none}
   .nav a.navlink{font-size:1.4rem}
+  .nav .btn{margin-left:0;margin-top:10px}
 }
 /* Mixed-weight headlines: light words, one bold phrase */
 .mix{font-weight:300}
@@ -540,6 +541,64 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
 .names-track i{flex:none;width:28px;height:10px;background:var(--lime);transform:rotate(-15deg);border:2px solid var(--night)}
 .names:hover .names-track{animation-play-state:paused}
 
+/* ===== Mobile tuning ===== */
+@media (max-width:880px){
+  body.on-hero .brand{opacity:1;transform:none;pointer-events:auto}
+  .hero-mark{max-width:260px}
+}
+@media (max-width:640px){
+  .head-in{min-height:58px;padding-left:18px}
+  .brand{width:46px}
+  .menu-btn{padding:.6em 1.1em}
+  .hero + .band,.page-head + .band,.case-hero + .band{margin-top:-24px;border-radius:24px 24px 0 0}
+  .hero-grid{padding-top:96px!important;padding-bottom:28px!important;gap:22px}
+  .hero-mark{max-width:220px}
+  .replay{bottom:-14px}
+  .hero-copy{gap:16px}
+  .hero-copy .h-xl{font-size:2.45rem}
+  .hero-copy .lede{font-size:1.08rem}
+  .who-opts{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px}
+  .who-opt{padding:12px 14px;border-radius:14px}
+  .who-opt b{font-size:1.02rem}
+  .who-opt span{display:none}
+  .hero-window{padding-bottom:52px}
+  .hw-photo{height:210px;border-radius:22px}
+  .hw-card{position:relative;right:auto;top:auto;width:auto;margin:-48px 14px 0;padding:16px 18px;gap:8px}
+  .hw-card b{font-size:1.12rem}
+  .hw-card .row{font-size:.88rem}
+  .hw-card .rnd{width:40px;height:40px}
+  .lcc-w{font-size:3.1rem}
+  .lcc-txt{min-height:0;font-size:1.08rem}
+  .lcc-shot{aspect-ratio:4/3;transform:none;border-radius:22px}
+  .tall .tcard{min-height:260px;border-radius:22px}
+  .tcard-body{padding:20px}
+  .q-photo{aspect-ratio:16/10;border-radius:22px}
+  .q-split .quote blockquote{font-size:1.55rem}
+  .q-ctrl .btn{margin-left:0!important}
+  .nums.bento{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px}
+  .nums.bento .num{min-height:140px;padding:18px;border-radius:18px}
+  .nums.bento .photo{grid-column:1 / -1!important;grid-row:auto!important;min-height:260px}
+  .nums.bento .num.wide{grid-column:1 / -1!important}
+  .num .l{font-size:.95rem}
+  .nums.bento .photo .n{font-size:5rem}
+  .num .n{font-size:3.2rem}
+  .names-track span{font-size:2rem}
+  .page-head .wrap{padding-top:104px!important}
+  .page-head.full{min-height:520px}
+  .head-shot{border-radius:22px}
+  .mv p{font-size:1.4rem}
+  .feature-q blockquote{font-size:1.35rem}
+  .case-hero .q{font-size:2.1rem}
+  .shot{border-radius:18px}
+  .strip .shot{height:180px}
+  .foot-top{flex-direction:column;align-items:flex-start}
+  .foot-line{font-size:2.2rem}
+  .tabpanel .big{font-size:2.2rem}
+  .tab{font-size:1.45rem}
+  .quote blockquote{font-size:1.7rem}
+  .lede{font-size:1.15rem}
+}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
 }
@@ -774,7 +833,7 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
       <span>HAN</span><i></i><span>Radboud University</span><i></i><span>ROC Nijmegen</span><i></i><span>Aventus</span><i></i><span class="o">Alliander</span><i></i><span class="o">ElaadNL</span><i></i><span class="o">Your organisation?</span><i></i>
       <span>HAN</span><i></i><span>Radboud University</span><i></i><span>ROC Nijmegen</span><i></i><span>Aventus</span><i></i><span class="o">Alliander</span><i></i><span class="o">ElaadNL</span><i></i><span class="o">Your organisation?</span><i></i>
     </div></div>
-    <div class="wrap split" style="margin-top:clamp(28px,4vw,48px)">
+    <div class="wrap split top" style="margin-top:clamp(28px,4vw,48px)">
       <div class="stack">
         <p class="eyebrow">Partner institutions</p>
         <h2 class="h-m">One programme across four schools, from MBO to university.</h2>
@@ -789,7 +848,6 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
     </div>
   </section>
 
-  <section class="band dark" data-contact-band></section>
 </div>
 
 <!-- ============ ABOUT ============ -->
@@ -1422,7 +1480,10 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
 <footer class="foot">
   <div class="wrap">
     <div class="foot-top">
-      <p class="foot-line">Our future, <b>(y)our energy</b></p>
+      <div class="stack" style="gap:14px">
+        <p class="foot-line">Our future, <b>(y)our energy</b></p>
+        <p style="max-width:52ch">Bring your knowledge, your questions, your challenges and your ideas. We'd love to hear from you.</p>
+      </div>
       <a class="btn btn-lime" href="#contact">Get in touch <span class="arr">→</span></a>
     </div>
     <div class="foot-cols">
@@ -1464,7 +1525,7 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
     views.forEach(v=>{v.hidden=v.dataset.view!==id; if(!v.hidden){v.classList.remove('view');void v.offsetWidth;v.classList.add('view');}});
     const cur=parentOf[id]||id;
     navLinks.forEach(a=>a.getAttribute('href')==='#'+cur?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
-    nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');
+    nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='Menu';
     window.scrollTo(0,0);
     document.body.classList.toggle('on-hero',id==='home');
     if(id==='home'){ if(!heroPlayed){playHero();heroPlayed=true;} startPulse(); } else stopPulse();
@@ -1475,7 +1536,7 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
     show(h||'home');
   }
   window.addEventListener('hashchange',route);
-  menuBtn.addEventListener('click',()=>{const o=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o);});
+  menuBtn.addEventListener('click',()=>{const o=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o);menuBtn.textContent=o?'Close':'Menu';});
 
   // Show the small header wordmark only once the hero wordmark scrolls away
   const hero=document.getElementById('hero');
