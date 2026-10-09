@@ -159,9 +159,7 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
 .qcard .by{display:grid;gap:2px;font-size:.98rem}
 .qcard .by span{opacity:.75}
 .qcard .role{justify-self:start;font:700 .76rem var(--cond);letter-spacing:.12em;text-transform:uppercase;padding:.3em .7em;border-radius:999px;border:1.5px solid currentColor}
-/* Big footer line */
-.foot-line{font-size:var(--step-3);font-weight:300;color:var(--salt);line-height:1}
-.foot-line b{font-weight:800;color:var(--lime)}
+
 
 /* Views */
 .view{animation:viewIn .45s ease both}
@@ -418,16 +416,43 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
 .th-ctrl[aria-pressed="true"] .sw{background:var(--night)}
 .th-ctrl[aria-pressed="true"] .sw::after{transform:translateX(18px);background:var(--lime)}
 
+
+
+/* Page heads with a photo */
+.page-head.photo .wrap{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:center;gap:clamp(24px,4vw,64px)}
+.ph-copy{gap:22px}
+.head-shot{aspect-ratio:4/5;max-height:560px;border-radius:28px;transform:rotate(1.5deg);box-shadow:0 30px 60px rgba(16,17,16,.35)}
+.page-head.lime .head-shot{box-shadow:0 30px 60px rgba(16,17,16,.25)}
+@media (max-width:820px){.page-head.photo .wrap{grid-template-columns:minmax(0,1fr)}.head-shot{aspect-ratio:4/3;transform:none}}
+/* Photo strips */
+.strip{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:clamp(10px,1.5vw,18px)}
+.strip .shot{aspect-ratio:auto;height:clamp(220px,28vw,380px)}
+.strip.rev{grid-template-columns:1fr 1fr 1.3fr}
+@media (max-width:700px){.strip,.strip.rev{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.strip .shot:first-child{grid-column:1/-1}}
+.feat-photo{display:grid;gap:16px;align-content:start}
+.feat-photo .shot{aspect-ratio:4/3}
+.qcard.pic{padding:0;border:none;overflow:hidden;min-height:320px}
+.qcard.pic img{width:100%;height:100%;object-fit:cover}
+.tabpanel .tp-img{border-radius:16px;overflow:hidden;aspect-ratio:16/10;margin:-4px 0 4px}
+.tabpanel .tp-img img{width:100%;height:100%;object-fit:cover;transition:opacity .3s ease}
 /* Footer */
-.foot{background:var(--night);color:var(--salt-soft);padding-block:56px 40px;border-top:1px solid var(--line-dark)}
-.foot-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end}
-@media (max-width:720px){.foot-grid{grid-template-columns:minmax(0,1fr)}}
-.foot .wm{width:120px}
-.foot-links{display:flex;flex-wrap:wrap;gap:8px 22px}
-.foot-links a{text-decoration:none;font-weight:700;color:var(--salt)}
-.foot-links a:hover{color:var(--lime)}
-.foot small{display:block;margin-top:28px;font:500 .9rem/1.5 var(--cond);letter-spacing:.02em;max-width:80ch}
-.ph-toggle{margin-top:18px;background:none;border:2px dashed #8E9600;color:var(--lime);font:700 .92rem var(--cond);letter-spacing:.06em;text-transform:uppercase;padding:.55em 1em;border-radius:8px;cursor:pointer}
+.foot{background:var(--night);color:var(--salt-soft);padding-block:clamp(48px,6vw,80px) 28px}
+.foot-top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;padding-bottom:clamp(32px,4vw,48px);border-bottom:1px solid var(--line-dark)}
+.foot-line{font-size:clamp(2rem,1.3rem + 3vw,4rem);font-weight:300;color:var(--salt);line-height:1;margin:0}
+.foot-line b{font-weight:800;color:var(--lime)}
+.foot-cols{display:grid;grid-template-columns:minmax(0,1.2fr) repeat(3,minmax(0,1fr));gap:24px;padding-block:clamp(28px,4vw,44px)}
+@media (max-width:820px){.foot-cols{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:440px){.foot-cols{grid-template-columns:minmax(0,1fr)}}
+.foot-cols h4{font:700 .8rem var(--cond);letter-spacing:.12em;text-transform:uppercase;color:var(--lime);margin-bottom:12px}
+.foot-cols ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.foot-cols a{color:var(--salt);text-decoration:none;font-weight:700}
+.foot-cols a:hover{color:var(--lime)}
+.foot-cols .mail{color:var(--salt);font-weight:700;overflow-wrap:anywhere;user-select:all}
+.foot .wm{width:96px}
+.foot-tag{margin-top:14px;max-width:28ch;font-size:1rem}
+.foot-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding-top:20px;border-top:1px solid var(--line-dark);font:500 .88rem/1.4 var(--cond);letter-spacing:.02em;color:#8B8E83}
+.ph-toggle{margin:0;background:none;border:1.5px dashed #8E9600;color:var(--lime);font:700 .82rem var(--cond);letter-spacing:.08em;text-transform:uppercase;padding:.5em .9em;border-radius:8px;cursor:pointer}
+.ph-toggle:hover{background:rgba(200,212,0,.12)}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
@@ -663,12 +688,14 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
 
 <!-- ============ ABOUT ============ -->
 <div class="view" data-view="about" hidden>
-  <section class="page-head">
-    <svg class="head-arcs" viewBox="0 0 300 400" aria-hidden="true"><path d="M60 20c60 70 80 120 80 180s-20 110-80 180" stroke="#C8D400"/><path d="M150 70c40 45 55 85 55 130s-15 85-55 130" stroke="#C8D400" opacity=".7"/></svg>
+  <section class="page-head photo">
     <div class="wrap">
+      <div class="stack ph-copy">
       <p class="eyebrow">About us · Our story</p>
       <h1 class="h-xl mix" style="max-width:14ch">Creating the energy future <b>together.</b></h1>
       <p class="lede">The energy transition is one of the biggest challenges of our time. No single person, organisation or field of knowledge can solve it alone. That is where Future (y)our Energy comes in.</p>
+      </div>
+      <div class="shot arcs head-shot"><img src="img/team-13.jpg" alt="Students and a lecturer laughing in front of a 3D design on screen"></div>
     </div>
   </section>
 
@@ -682,18 +709,26 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
       <div class="shot arcs" style="aspect-ratio:1/1"><img src="img/lab.jpg" alt="A student and a researcher talking in an energy lab full of equipment and cables" loading="lazy"></div>
     </div>
   </section>
+  <section class="band" style="padding-top:0">
+    <div class="wrap strip">
+      <div class="shot arcs"><img src="img/team-11.jpg" alt="The team gathered around a table in a project room" loading="lazy"></div>
+      <div class="shot arcs"><img src="img/team-9.jpg" alt="A student explaining a steel foundation part" loading="lazy"></div>
+      <div class="shot arcs"><img src="img/team-20.jpg" alt="Two students working at a laptop" loading="lazy"></div>
+    </div>
+  </section>
 
   <section class="band mist">
     <div class="wrap stack" style="gap:32px">
       <div class="stack"><p class="eyebrow">Everyone brings something different</p><h2 class="h-l" style="max-width:18ch">Together, these perspectives create something stronger.</h2></div>
       <div class="tabs">
         <div class="tablist" role="tablist" aria-label="Who brings what">
-          <button class="tab" role="tab" id="t-st" aria-selected="true" aria-controls="tp" data-big="Curiosity" data-txt="Students bring curiosity and new perspectives. They work on challenges with a real purpose and find out where their knowledge gaps are, and where their learning should start.">Students <span class="gives">bring</span></button>
-          <button class="tab" role="tab" id="t-le" aria-selected="false" aria-controls="tp" data-big="Expertise" data-txt="Lecturers and researchers bring knowledge and expertise. They coach teams on how to tackle a problem, exchange knowledge with others and help shape new ways of learning.">Lecturers &amp; researchers <span class="gives">bring</span></button>
-          <button class="tab" role="tab" id="t-pr" aria-selected="false" aria-controls="tp" data-big="Experience" data-txt="Professionals bring practical experience. They show how things work outside the classroom and help students test their ideas against reality.">Professionals <span class="gives">bring</span></button>
-          <button class="tab" role="tab" id="t-or" aria-selected="false" aria-controls="tp" data-big="Real challenges" data-txt="Organisations bring real challenges and real-world experience. In return they get a multidisciplinary environment, fresh perspectives and a first look at the professionals of the future.">Organisations <span class="gives">bring</span></button>
+          <button class="tab" role="tab" id="t-st" aria-selected="true" aria-controls="tp" data-img="team-19" data-big="Curiosity" data-txt="Students bring curiosity and new perspectives. They work on challenges with a real purpose and find out where their knowledge gaps are, and where their learning should start.">Students <span class="gives">bring</span></button>
+          <button class="tab" role="tab" id="t-le" aria-selected="false" aria-controls="tp" data-img="team-14" data-big="Expertise" data-txt="Lecturers and researchers bring knowledge and expertise. They coach teams on how to tackle a problem, exchange knowledge with others and help shape new ways of learning.">Lecturers &amp; researchers <span class="gives">bring</span></button>
+          <button class="tab" role="tab" id="t-pr" aria-selected="false" aria-controls="tp" data-img="team-1" data-big="Experience" data-txt="Professionals bring practical experience. They show how things work outside the classroom and help students test their ideas against reality.">Professionals <span class="gives">bring</span></button>
+          <button class="tab" role="tab" id="t-or" aria-selected="false" aria-controls="tp" data-img="team-3" data-big="Real challenges" data-txt="Organisations bring real challenges and real-world experience. In return they get a multidisciplinary environment, fresh perspectives and a first look at the professionals of the future.">Organisations <span class="gives">bring</span></button>
         </div>
         <div class="tabpanel" role="tabpanel" id="tp" aria-labelledby="t-st">
+          <div class="tp-img"><img id="tpImg" src="img/team-19.jpg" alt="" loading="lazy"></div>
           <span class="big" id="tpBig">Curiosity</span>
           <p id="tpTxt">Students bring curiosity and new perspectives. They work on challenges with a real purpose and find out where their knowledge gaps are, and where their learning should start.</p>
         </div>
@@ -724,12 +759,14 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
 
 <!-- ============ MISSION & VISION ============ -->
 <div class="view" data-view="mission" hidden>
-  <section class="page-head">
-    <svg class="head-arcs" viewBox="0 0 300 400" aria-hidden="true"><path d="M60 20c60 70 80 120 80 180s-20 110-80 180" stroke="#C8D400"/><path d="M150 70c40 45 55 85 55 130s-15 85-55 130" stroke="#C8D400" opacity=".7"/></svg>
+  <section class="page-head photo">
     <div class="wrap">
+      <div class="stack ph-copy">
       <p class="eyebrow">Mission &amp; vision</p>
       <h1 class="h-xl mix" style="max-width:14ch">Education and practice, <b>working as one.</b></h1>
       <p class="lede">Why Future (y)our Energy exists, and the future we want to help build.</p>
+      </div>
+      <div class="shot arcs head-shot"><img src="img/wind-dusk.jpg" alt="Wind turbines on the horizon at dusk"></div>
     </div>
   </section>
 
@@ -776,6 +813,9 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
     </div>
   </section>
 
+  <section class="band" style="padding-bottom:0">
+    <div class="wrap"><div class="shot arcs" style="aspect-ratio:21/8"><img src="img/solar-rows.jpg" alt="Rows of solar panels on green grass" loading="lazy"></div></div>
+  </section>
   <section class="band">
     <div class="wrap split top">
       <div class="stack"><p class="eyebrow">Why FyE?</p><h2 class="h-l mix">Because some challenges need us to <b>work together.</b></h2></div>
@@ -794,12 +834,14 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
 
 <!-- ============ TESTIMONIALS ============ -->
 <div class="view" data-view="testimonials" hidden>
-  <section class="page-head lime">
-    <svg class="head-arcs" viewBox="0 0 300 400" aria-hidden="true"><path d="M60 20c60 70 80 120 80 180s-20 110-80 180" stroke="#101110"/><path d="M150 70c40 45 55 85 55 130s-15 85-55 130" stroke="#101110" opacity=".5"/></svg>
+  <section class="page-head photo lime">
     <div class="wrap">
+      <div class="stack ph-copy">
       <p class="eyebrow">Testimonials</p>
       <h1 class="h-xl mix" style="max-width:14ch">In the words of the <b>people involved.</b></h1>
       <p class="lede">Lecturers and students on what working within Future (y)our Energy is like.</p>
+      </div>
+      <div class="shot arcs head-shot"><img src="img/team-16.jpg" alt="A lecturer and a student talking at a table in front of sticky notes"></div>
     </div>
   </section>
 
@@ -815,11 +857,13 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
         <figure class="qcard dk" data-type="lecturer" style="margin:0"><span class="role">Lecturer</span><blockquote>Future (Y)our Energy helps you find out what you need to know and then start learning. You get to experience from practice where your knowledge gaps are.</blockquote><figcaption class="by"><b>Ronald van Buuren</b><span>Researcher and teacher at HAN, Balanced Energy Systems</span></figcaption></figure>
         <figure class="qcard" data-type="student" style="margin:0"><span class="role">Student</span><blockquote>Student testimonial goes here.</blockquote><figcaption class="by"><span class="ph">Name, study programme and institution</span></figcaption></figure>
         <figure class="qcard lm" data-type="lecturer" style="margin:0"><span class="role">Lecturer</span><blockquote>There isn't so much a class to prepare. Rather, you're in touch with the students and coaching them on how they tackle the problem.</blockquote><figcaption class="by"><b>Ronald van Buuren</b><span>Researcher and teacher at HAN</span></figcaption></figure>
+        <figure class="qcard pic" data-type="pic" style="margin:0"><img src="img/team-17.jpg" alt="A lecturer and a student laughing at a table" loading="lazy"></figure>
         <figure class="qcard" data-type="lecturer" style="margin:0"><span class="role">Lecturer</span><blockquote>Every day that I've spent in the Future (Y)our Energy environment has been unlike the days I spent before in more regular education.</blockquote><figcaption class="by"><b>Ronald van Buuren</b><span>Researcher and teacher at HAN</span></figcaption></figure>
         <figure class="qcard dk" data-type="student" style="margin:0"><span class="role">Student</span><blockquote>Student testimonial goes here.</blockquote><figcaption class="by"><span class="ph">Name, study programme and institution</span></figcaption></figure>
         <figure class="qcard" data-type="lecturer" style="margin:0"><span class="role">Lecturer</span><blockquote>Students are able, especially when they operate in a group, to come up with solutions that people within the company hadn't thought about or hadn't considered.</blockquote><figcaption class="by"><b>Ronald van Buuren</b><span>Researcher and teacher at HAN</span></figcaption></figure>
         <figure class="qcard lm" data-type="lecturer" style="margin:0"><span class="role">Lecturer</span><blockquote>Students really get a feeling for the energy transition domain. They're working on one part of it, but they get a better idea of what's going on as a whole.</blockquote><figcaption class="by"><b>Ronald van Buuren</b><span>Researcher and teacher at HAN</span></figcaption></figure>
         <figure class="qcard" data-type="partner" style="margin:0"><span class="role">Partner</span><blockquote>Partner testimonial goes here.</blockquote><figcaption class="by"><span class="ph">Quote from Alliander or ElaadNL contact</span></figcaption></figure>
+        <figure class="qcard pic" data-type="pic" style="margin:0"><img src="img/team-19.jpg" alt="Two students talking at a table" loading="lazy"></figure>
         <figure class="qcard dk" data-type="lecturer" style="margin:0"><span class="role">Lecturer</span><blockquote>A problem is usually never solved within half a year. Students might be interested in continuing to solve that problem later as part of the company.</blockquote><figcaption class="by"><b>Ronald van Buuren</b><span>Researcher and teacher at HAN</span></figcaption></figure>
       </div>
     </div>
@@ -830,13 +874,15 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
 
 <!-- ============ LECTURERS ============ -->
 <div class="view" data-view="lecturers" hidden>
-  <section class="page-head lime">
-    <svg class="head-arcs" viewBox="0 0 300 400" aria-hidden="true"><path d="M60 20c60 70 80 120 80 180s-20 110-80 180" stroke="#101110"/><path d="M150 70c40 45 55 85 55 130s-15 85-55 130" stroke="#101110" opacity=".5"/></svg>
+  <section class="page-head photo lime">
     <div class="wrap">
+      <div class="stack ph-copy">
       <p class="eyebrow">For lecturers at HAN, Radboud, ROC Nijmegen and Aventus</p>
       <h1 class="h-xl mix" style="max-width:13ch">Help shape the <b>talent of tomorrow.</b></h1>
       <p class="lede">Real challenges. Your students. Our shared future.</p>
       <div class="btn-row"><a class="btn btn-night" href="#basics">What it asks of you <span class="arr">↓</span></a></div>
+      </div>
+      <div class="shot arcs head-shot"><img src="img/team-15.jpg" alt="A smiling student at a project table"></div>
     </div>
   </section>
 
@@ -853,6 +899,16 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
       <div class="shot arcs" style="aspect-ratio:4/5"><img src="img/team-17.jpg" alt="A lecturer and a student laughing together at a table in front of a wall of sticky notes" loading="lazy"></div>
     </div>
   </section>
+  <section class="band" style="padding-top:0">
+    <div class="wrap stack" style="gap:20px">
+      <p class="eyebrow">What it looks like</p>
+      <div class="strip rev">
+        <div class="shot arcs"><img src="img/team-14.jpg" alt="A student explaining a 3D-printed part in front of a CAD model" loading="lazy"></div>
+        <div class="shot arcs"><img src="img/team-6.jpg" alt="A student presenting a foundation part on a test pillar" loading="lazy"></div>
+        <div class="shot arcs"><img src="img/team-12.jpg" alt="The team discussing a design on a screen in a meeting room" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
 
   <section class="band dark">
     <div class="wrap split">
@@ -862,6 +918,7 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
         <p class="prose">Your role is less about preparing a class and more about being in touch with students, helping them work out how to tackle a problem and where to find what they need to know.</p>
       </div>
       <div class="quote">
+        <div class="shot" style="aspect-ratio:16/9"><img src="img/team-16.jpg" alt="A lecturer and a student talking at a table" loading="lazy"></div>
         <blockquote style="font-size:var(--step-2)">For a teacher, the attractive thing is that there isn't so much a class to prepare. Rather, you're in touch with the students and coaching them on how they tackle the problem.</blockquote>
         <div class="who-said"><b>Ronald van Buuren</b><span>Researcher and teacher at HAN</span></div>
       </div>
@@ -923,21 +980,23 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
 
 <!-- ============ COMPANIES ============ -->
 <div class="view" data-view="companies" hidden>
-  <section class="page-head">
-    <svg class="head-arcs" viewBox="0 0 300 400" aria-hidden="true"><path d="M60 20c60 70 80 120 80 180s-20 110-80 180" stroke="#C8D400"/><path d="M150 70c40 45 55 85 55 130s-15 85-55 130" stroke="#C8D400" opacity=".7"/></svg>
+  <section class="page-head photo">
     <div class="wrap">
+      <div class="stack ph-copy">
       <p class="eyebrow">For organisations in the energy sector</p>
       <h1 class="h-xl mix" style="max-width:12ch">Do you dare to <b>rethink what's next?</b></h1>
       <p class="lede">Every organisation has challenges that could use a fresh perspective. Bring yours to a multidisciplinary team of MBO, HBO and WO students.</p>
       <div class="btn-row"><a class="btn btn-lime" href="#contact">Hand us your next challenge <span class="arr">→</span></a><a class="btn btn-ghost" href="#projects">See our projects</a></div>
+      </div>
+      <div class="shot arcs head-shot"><img src="img/team-5.jpg" alt="Students and a lecturer laughing while holding foundation parts in a test hall"></div>
     </div>
   </section>
 
   <section class="band">
     <div class="wrap trio">
-      <div class="feat"><h3>You bring the challenge.</h3><p>A real question from your organisation, with the constraints and stakeholders that come with it.</p></div>
-      <div class="feat"><h3>They bring fresh perspectives.</h3><p>Students from different disciplines combine their knowledge and question existing approaches.</p></div>
-      <div class="feat"><h3>Together, you explore what's next.</h3><p>Ideas, research and prototypes you might not have considered yet.</p></div>
+      <div class="feat-photo"><div class="shot arcs"><img src="img/team-1.jpg" alt="A lecturer pointing at a fast charger while explaining to students" loading="lazy"></div><div class="feat"><h3>You bring the challenge.</h3><p>A real question from your organisation, with the constraints and stakeholders that come with it.</p></div></div>
+      <div class="feat-photo"><div class="shot arcs"><img src="img/team-13.jpg" alt="The team laughing in front of a CAD drawing on screen" loading="lazy"></div><div class="feat"><h3>They bring fresh perspectives.</h3><p>Students from different disciplines combine their knowledge and question existing approaches.</p></div></div>
+      <div class="feat-photo"><div class="shot arcs"><img src="img/team-7.jpg" alt="The team examining a foundation prototype in a test hall" loading="lazy"></div><div class="feat"><h3>Together, you explore what's next.</h3><p>Ideas, research and prototypes you might not have considered yet.</p></div></div>
     </div>
   </section>
 
@@ -979,6 +1038,7 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
         <span class="ph">Expected staff time per week / per challenge</span>
       </div>
       <div class="quote">
+        <div class="shot" style="aspect-ratio:16/9"><img src="img/team-4.jpg" alt="The team discussing a foundation part outdoors at a test site" loading="lazy"></div>
         <blockquote style="font-size:var(--step-2)">Of course, it takes something from the companies. They have to invest some effort, but I think it pays off.</blockquote>
         <div class="who-said"><b>Ronald van Buuren</b><span>Researcher and teacher at HAN</span></div>
       </div>
@@ -1010,11 +1070,14 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
 
 <!-- ============ PROJECTS ============ -->
 <div class="view" data-view="projects" hidden>
-  <section class="page-head">
+  <section class="page-head photo">
     <div class="wrap">
+      <div class="stack ph-copy">
       <p class="eyebrow">Projects</p>
       <h1 class="h-xl mix" style="max-width:14ch">Real challenges, from <b>real partners.</b></h1>
       <p class="lede">A challenge from an organisation becomes a starting point for fresh thinking, practical learning and collaboration with emerging talent.</p>
+      </div>
+      <div class="shot arcs head-shot"><img src="img/team-4.jpg" alt="The team discussing a foundation part outdoors at a test site"></div>
     </div>
   </section>
   <section class="band dark" style="padding-top:0">
@@ -1215,11 +1278,14 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
 
 <!-- ============ CONTACT ============ -->
 <div class="view" data-view="contact" hidden>
-  <section class="page-head lime">
+  <section class="page-head photo lime">
     <div class="wrap">
+      <div class="stack ph-copy">
       <p class="eyebrow">Contact</p>
       <h1 class="h-xl mix" style="max-width:13ch">Interested in <b>joining forces</b> with FyE?</h1>
       <p class="lede">Whether you're a teacher, student or company, we'd love to hear from you. Get in touch to explore our projects and opportunities to collaborate.</p>
+      </div>
+      <div class="shot arcs head-shot"><img src="img/team-18.jpg" alt="Two team members in conversation at a table"></div>
     </div>
   </section>
   <section class="band dark" data-contact-band data-full></section>
@@ -1244,18 +1310,23 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
 
 <footer class="foot">
   <div class="wrap">
-    <div class="foot-grid">
-      <div class="stack" style="gap:18px">
-        <svg class="wm" viewBox="0 0 720 609.2" role="img" aria-label="Future (y)our Energy"><use href="#wm-text" fill="#FAFAF8"/><use href="#wm-arcs" fill="#C8D400"/></svg>
-        <p class="foot-line">Our future, <b>(y)our energy</b></p>
-        <p style="max-width:40ch">Challenge what is possible. Connect different perspectives. Create what comes next.</p>
-      </div>
-      <nav class="foot-links" aria-label="Footer">
-        <a href="#home">Home</a><a href="#about">About us</a><a href="#mission">Mission &amp; vision</a><a href="#testimonials">Testimonials</a><a href="#lecturers">For lecturers</a><a href="#companies">For organisations</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
-      </nav>
+    <div class="foot-top">
+      <p class="foot-line">Our future, <b>(y)our energy</b></p>
+      <a class="btn btn-lime" href="#contact">Get in touch <span class="arr">→</span></a>
     </div>
-    <small>Website concept made by Valerie Kemunto, Teodor Popov, Kady Shidime, Hootan Maat, Virág Csikai and Roy for Future (y)our Energy. Landscape photos from Unsplash. Striped boxes mark content still to be confirmed.</small>
-    <button class="ph-toggle" id="phToggle" type="button">Highlight placeholders</button>
+    <div class="foot-cols">
+      <div>
+        <svg class="wm" viewBox="0 0 720 609.2" role="img" aria-label="Future (y)our Energy"><use href="#wm-text" fill="#FAFAF8"/><use href="#wm-arcs" fill="#C8D400"/></svg>
+        <p class="foot-tag">Challenge what is possible. Connect different perspectives. Create what comes next.</p>
+      </div>
+      <nav aria-label="Explore"><h4>Explore</h4><ul><li><a href="#about">About us</a></li><li><a href="#mission">Mission &amp; vision</a></li><li><a href="#projects">Projects</a></li><li><a href="#testimonials">Testimonials</a></li></ul></nav>
+      <nav aria-label="Get involved"><h4>Get involved</h4><ul><li><a href="#lecturers">For lecturers</a></li><li><a href="#companies">For organisations</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+      <div><h4>Contact</h4><ul><li><span class="mail">energietransitie@han.nl</span></li><li><span class="mail">vincent.wiegel@han.nl</span></li><li><a href="https://www.linkedin.com/company/future-your-energy/" target="_blank" rel="noopener">LinkedIn ↗</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>Concept by Valerie Kemunto, Teodor Popov, Kady Shidime, Hootan Maat, Virág Csikai and Roy · Landscape photos: Unsplash</span>
+      <button class="ph-toggle" id="phToggle" type="button">Highlight placeholders</button>
+    </div>
   </div>
 </footer>
 
@@ -1358,6 +1429,7 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
     document.getElementById('tp').setAttribute('aria-labelledby',t.id);
     document.getElementById('tpBig').textContent=t.dataset.big;
     document.getElementById('tpTxt').textContent=t.dataset.txt;
+    document.getElementById('tpImg').src='img/'+t.dataset.img+'.jpg';
   }));
 
   // Institution selector
