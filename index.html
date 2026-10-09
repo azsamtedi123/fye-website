@@ -484,6 +484,62 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
 .film:hover .film-track{animation-play-state:paused}
 @keyframes film{to{transform:translateX(-50%)}}
 
+/* Landing: hero window */
+.hero-grid{padding-bottom:clamp(32px,4vw,56px)!important}
+.hero-window{position:relative;padding-bottom:0}
+.hw-photo{border-radius:28px 28px 0 0;overflow:hidden;height:clamp(260px,34vw,480px)}
+.hw-photo img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.hw-card{position:absolute;right:calc(var(--gutter) + clamp(16px,3vw,40px));top:clamp(16px,3vw,40px);width:min(360px,calc(100% - 2*var(--gutter) - 32px));background:rgba(16,17,16,.82);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid var(--line-dark);border-radius:22px;padding:22px;display:grid;gap:12px;color:var(--salt);text-decoration:none;transition:transform .25s ease}
+.hw-card:hover{transform:translateY(-4px)}
+.hw-card .k{font:700 .8rem var(--cond);letter-spacing:.12em;text-transform:uppercase;color:var(--lime)}
+.hw-card b{font-size:var(--step-1);line-height:1.15}
+.hw-card .row{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--salt-soft);font-size:.95rem}
+.hero-window + *{}
+/* Landing: Learn Connect Create */
+.lcc-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:center}
+@media (max-width:820px){.lcc-grid{grid-template-columns:minmax(0,1fr)}}
+.lcc-list{display:grid;gap:0;justify-items:start}
+.lcc-w{background:none;border:none;padding:0;cursor:pointer;font:800 clamp(3rem,2rem + 5vw,6.4rem)/.95 var(--display);color:transparent;-webkit-text-stroke:2px var(--night);transition:color .25s ease, transform .25s ease;text-align:left}
+.lcc-w[aria-selected="true"]{color:var(--night);transform:translateX(12px)}
+.lcc-w:hover{color:rgba(16,17,16,.35)}
+.lcc-w[aria-selected="true"]:hover{color:var(--night)}
+.lcc-txt{max-width:40ch;min-height:4.2em;color:#2C2E1E}
+.lcc-shot{position:relative;aspect-ratio:4/5;max-height:600px;border-radius:28px;overflow:hidden;background:var(--night);transform:rotate(-1.5deg)}
+.lcc-shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s ease}
+.lcc-shot img.next{opacity:0}
+/* Landing: steps line */
+.steps{position:relative}
+.steps::before{content:"";position:absolute;top:-2px;left:0;height:2px;width:0;background:var(--lime);transition:width 1.6s cubic-bezier(.6,0,.2,1)}
+.steps.lit::before{width:100%}
+.steps.lit .step::after{background:var(--lime);transform:scale(1.25)}
+.steps .step:nth-child(2)::after{transition-delay:.4s}.steps .step:nth-child(3)::after{transition-delay:.8s}.steps .step:nth-child(4)::after{transition-delay:1.2s}
+/* Landing: quote with photo */
+.q-split{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,72px);align-items:center}
+@media (max-width:820px){.q-split{grid-template-columns:minmax(0,1fr)}}
+.q-photo{aspect-ratio:4/5;border-radius:28px;overflow:hidden;max-height:560px}
+.q-photo img{width:100%;height:100%;object-fit:cover;transition:opacity .35s ease}
+.q-split .quote blockquote{font-size:var(--step-2);max-width:none}
+/* Landing: numbers bento */
+.nums.bento{grid-template-columns:repeat(4,minmax(0,1fr))}
+.nums.bento .num{min-height:170px}
+.nums.bento .photo{grid-column:span 2;grid-row:span 2;position:relative;overflow:hidden;color:var(--salt);align-content:end;background:var(--night)}
+.nums.bento .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.7}
+.nums.bento .photo::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,17,16,0) 30%,rgba(16,17,16,.85));z-index:1}
+.nums.bento .photo .n,.nums.bento .photo .l{position:relative;z-index:2}
+.nums.bento .photo .n{color:var(--lime);font-size:clamp(5rem,3rem + 6vw,9rem)}
+.nums.bento .photo .l{color:var(--salt)}
+.num.lm{background:var(--lime)}
+.nums.bento .num.wide{grid-column:span 4;display:flex;align-items:center;gap:18px;min-height:0;padding-block:18px}
+.num.wide .n{font-size:var(--step-2)}
+@media (max-width:820px){.nums.bento{grid-template-columns:repeat(2,minmax(0,1fr))}.nums.bento .photo{grid-column:span 2;grid-row:span 1;min-height:280px}.num.wide{grid-column:span 2}}
+/* Landing: names marquee */
+.names{overflow:hidden;margin-top:18px;border-block:2px solid var(--night);padding-block:clamp(14px,2vw,22px)}
+.names-track{display:flex;align-items:center;gap:clamp(22px,3vw,44px);width:max-content;animation:film 40s linear infinite}
+.names-track span{font-size:clamp(2.2rem,1.4rem + 3vw,4.4rem);font-weight:800;line-height:1;white-space:nowrap;color:var(--night)}
+.names-track span.o{color:transparent;-webkit-text-stroke:2px var(--night)}
+.names-track i{flex:none;width:28px;height:10px;background:var(--lime);transform:rotate(-15deg);border:2px solid var(--night)}
+.names:hover .names-track{animation-play-state:paused}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
 }
@@ -587,13 +643,28 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
         </div>
       </div>
     </div>
+    <div class="wrap hero-window">
+      <div class="hw-photo"><img src="img/team-5.jpg" alt="Students and a lecturer laughing while holding foundation parts in the test hall"></div>
+      <a class="hw-card" href="#elaadnl">
+        <span class="k">Latest project</span>
+        <b>ElaadNL: one foundation for every charging station</b>
+        <span class="row"><span>6 HAN students · prototypes &amp; advice report</span><span class="rnd">→</span></span>
+      </a>
+    </div>
   </section>
 
   <section class="band lime">
-    <div class="wrap stack">
-      <p class="eyebrow">What we do</p>
-      <div class="lcc" aria-label="Learn. Connect. Create."><span>Learn.</span><span>Connect.</span><span>Create.</span></div>
-      <p class="lede" style="max-width:46ch">FyE brings different knowledge, skills and ideas together, so a challenge is never looked at from just one perspective. From energy and technology to business, design and social innovation.</p>
+    <div class="wrap lcc-grid">
+      <div class="stack" style="gap:24px">
+        <p class="eyebrow">What we do</p>
+        <div class="lcc-list" role="tablist" aria-label="What we do">
+          <button class="lcc-w" role="tab" aria-selected="true" data-img="team-14" data-txt="Students learn by doing. Working on a real challenge shows them where their knowledge gaps are, and where their learning should start.">Learn.</button>
+          <button class="lcc-w" role="tab" aria-selected="false" data-img="team-17" data-txt="Students, lecturers, researchers and organisations from different fields work on one challenge, so it is never looked at from just one perspective.">Connect.</button>
+          <button class="lcc-w" role="tab" aria-selected="false" data-img="team-5" data-txt="Ideas turn into research, prototypes and advice that organisations can actually use, from energy and technology to business and design.">Create.</button>
+        </div>
+        <p class="lede lcc-txt" id="lccTxt" aria-live="polite">Students learn by doing. Working on a real challenge shows them where their knowledge gaps are, and where their learning should start.</p>
+      </div>
+      <div class="lcc-shot"><img id="lccImg" src="img/team-14.jpg" alt="" ><img id="lccImg2" src="img/team-14.jpg" alt="" class="next"></div>
     </div>
   </section>
 
@@ -621,7 +692,7 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
         </div>
         <div class="shot arcs" style="aspect-ratio:4/3"><img src="img/team-10.jpg" alt="Students and a lecturer discussing a 3D model on a screen in a project room" loading="lazy"></div>
       </div>
-      <ol class="steps" style="list-style:none;padding:0">
+      <ol class="steps" id="steps" style="list-style:none;padding:0">
         <li class="step"><h3>An organisation brings a challenge</h3><p>A real question from the energy transition, with real constraints and stakeholders.</p></li>
         <li class="step"><h3>A mixed team picks it up</h3><p>MBO, HBO and WO students from different study programmes work on it together.</p></li>
         <li class="step"><h3>Lecturers coach the process</h3><p>Less preparing classes, more helping students find out what they need to know.</p></li>
@@ -650,24 +721,25 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
   </section>
 
   <section class="band dark" style="padding-top:0">
-    <div class="wrap">
+    <div class="wrap q-split">
+      <div class="q-photo"><img id="qImg" src="img/team-16.jpg" alt=""></div>
       <div class="quotes" id="quotes" aria-roledescription="carousel" aria-label="Testimonials">
-        <div class="quote" data-q>
+        <div class="quote" data-img="team-16" data-q>
           <p class="eyebrow">In their words</p>
           <blockquote>Future (Y)our Energy helps you find out what you need to know and then start learning.</blockquote>
           <div class="who-said"><b>Ronald van Buuren</b><span>Researcher and teacher at HAN, Balanced Energy Systems research group</span></div>
         </div>
-        <div class="quote" data-q hidden>
+        <div class="quote" data-img="team-17" data-q hidden>
           <p class="eyebrow">In their words</p>
           <blockquote>Every day that I've spent in the Future (Y)our Energy environment has been unlike the days I spent before in more regular education.</blockquote>
           <div class="who-said"><b>Ronald van Buuren</b><span>Researcher and teacher at HAN</span></div>
         </div>
-        <div class="quote" data-q hidden>
+        <div class="quote" data-img="team-13" data-q hidden>
           <p class="eyebrow">In their words</p>
           <blockquote>Students are able, especially in a group, to come up with solutions that people within the company hadn't thought about.</blockquote>
           <div class="who-said"><b>Ronald van Buuren</b><span>Researcher and teacher at HAN</span></div>
         </div>
-        <div class="quote" data-q hidden>
+        <div class="quote" data-img="team-19" data-q hidden>
           <p class="eyebrow">Student voice</p>
           <blockquote>Student testimonial goes here.</blockquote>
           <div class="who-said"><span class="ph">Student quote, name and study programme (testimonials in progress)</span></div>
@@ -685,28 +757,34 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
   <section class="band mist" style="padding-bottom:0">
     <div class="wrap stack" style="gap:28px">
       <h2 class="h-l mix">FyE <b>in numbers</b></h2>
-      <div class="nums" id="nums">
-        <div class="num hl"><span class="n" data-count="4">4</span><span class="l">partner institutions, from MBO to university</span></div>
-        <div class="num"><span class="n" data-count="3">3</span><span class="l">education levels in one team: MBO, HBO and WO</span></div>
+      <div class="nums bento" id="nums">
+        <div class="num photo"><img src="img/team-10.jpg" alt=""><span class="n" data-count="4">4</span><span class="l">partner institutions, from MBO to university</span></div>
+        <div class="num hl"><span class="n" data-count="3">3</span><span class="l">education levels in one team: MBO, HBO and WO</span></div>
         <div class="num"><span class="n" data-count="2">2</span><span class="l">partner organisations bringing challenges</span></div>
         <div class="num"><span class="n" data-count="6">6</span><span class="l">HAN students built the ElaadNL foundation prototype</span></div>
-        <div class="num"><span class="n" data-count="15">15</span><span class="l">people in the FyE core team</span></div>
-        <div class="num"><span class="n"><span class="ph">#</span></span><span class="l">students who took part so far</span></div>
+        <div class="num lm"><span class="n" data-count="15">15</span><span class="l">people in the FyE core team</span></div>
+        <div class="num wide"><span class="n"><span class="ph">#</span></span><span class="l">students have taken part in FyE so far</span></div>
       </div>
     </div>
   </section>
 
-  <section class="band mist">
-    <div class="wrap split">
+  <section class="band mist names-band">
+    <div class="wrap"><p class="eyebrow">Working together with</p></div>
+    <div class="names" aria-label="HAN, Radboud University, ROC Nijmegen, Aventus, Alliander, ElaadNL"><div class="names-track" aria-hidden="true">
+      <span>HAN</span><i></i><span>Radboud University</span><i></i><span>ROC Nijmegen</span><i></i><span>Aventus</span><i></i><span class="o">Alliander</span><i></i><span class="o">ElaadNL</span><i></i><span class="o">Your organisation?</span><i></i>
+      <span>HAN</span><i></i><span>Radboud University</span><i></i><span>ROC Nijmegen</span><i></i><span>Aventus</span><i></i><span class="o">Alliander</span><i></i><span class="o">ElaadNL</span><i></i><span class="o">Your organisation?</span><i></i>
+    </div></div>
+    <div class="wrap split" style="margin-top:clamp(28px,4vw,48px)">
       <div class="stack">
         <p class="eyebrow">Partner institutions</p>
         <h2 class="h-m">One programme across four schools, from MBO to university.</h2>
-        <div class="partners"><span class="chip">HAN</span><span class="chip">Radboud University</span><span class="chip">ROC Nijmegen</span><span class="chip">Aventus</span></div>
+        <p class="prose">HAN, Radboud University, ROC Nijmegen and Aventus. Every lecturer gets the same information, whichever school they teach at.</p>
       </div>
       <div class="stack">
         <p class="eyebrow">Current partners</p>
         <h2 class="h-m">Organisations already bringing challenges.</h2>
-        <div class="partners"><span class="chip">Alliander</span><span class="chip">ElaadNL</span><span class="chip" style="border-style:dashed">Your organisation?</span></div>
+        <p class="prose">Alliander and ElaadNL bring real challenges into FyE. There is room for more.</p>
+        <div class="btn-row"><a class="btn btn-night" href="#companies">Become a partner <span class="arr">→</span></a></div>
       </div>
     </div>
   </section>
@@ -1448,7 +1526,9 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
   // Testimonials
   const qs=[...document.querySelectorAll('[data-q]')],dots=document.getElementById('qDots');let qi=0,qT;
   qs.forEach((q,i)=>{const b=document.createElement('button');b.className='q-dot';b.type='button';b.setAttribute('aria-label','Quote '+(i+1));b.onclick=()=>{go(i);loop();};dots.appendChild(b);});
-  function go(i){qi=(i+qs.length)%qs.length;qs.forEach((q,j)=>{q.hidden=j!==qi;if(j===qi){q.classList.remove('view');void q.offsetWidth;q.classList.add('view');}});[...dots.children].forEach((d,j)=>d.setAttribute('aria-current',j===qi));}
+  const qImg=document.getElementById('qImg');
+  function go(i){qi=(i+qs.length)%qs.length;qs.forEach((q,j)=>{q.hidden=j!==qi;if(j===qi){q.classList.remove('view');void q.offsetWidth;q.classList.add('view');}});[...dots.children].forEach((d,j)=>d.setAttribute('aria-current',j===qi));
+    const src='img/'+qs[qi].dataset.img+'.jpg';if(!qImg.src.endsWith(src)){qImg.style.opacity=0;setTimeout(()=>{qImg.src=src;qImg.style.opacity=1;},250);}}
   function loop(){clearInterval(qT);if(!reduce)qT=setInterval(()=>go(qi+1),7000);}
   document.getElementById('qPrev').onclick=()=>{go(qi-1);loop();};
   document.getElementById('qNext').onclick=()=>{go(qi+1);loop();};
@@ -1532,6 +1612,22 @@ body.on-hero .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
       c.hidden=!show; if(show){c.classList.remove('view');void c.offsetWidth;c.classList.add('view');}
     });
   }));
+
+  // Learn / Connect / Create
+  const lccW=[...document.querySelectorAll('.lcc-w')],lccTxt=document.getElementById('lccTxt');
+  let lccA=document.getElementById('lccImg'),lccB=document.getElementById('lccImg2'),lccT;
+  function lcc(b){
+    if(b.getAttribute('aria-selected')==='true')return;
+    lccW.forEach(x=>x.setAttribute('aria-selected',x===b));
+    lccTxt.textContent=b.dataset.txt;
+    lccB.src='img/'+b.dataset.img+'.jpg';lccB.classList.remove('next');lccA.classList.add('next');[lccA,lccB]=[lccB,lccA];
+  }
+  lccW.forEach((b,i)=>{b.addEventListener('mouseenter',()=>{lcc(b);loopLcc();});b.addEventListener('click',()=>{lcc(b);loopLcc();});b.addEventListener('focus',()=>lcc(b));});
+  function loopLcc(){clearInterval(lccT);if(!reduce)lccT=setInterval(()=>{const i=lccW.findIndex(x=>x.getAttribute('aria-selected')==='true');lcc(lccW[(i+1)%lccW.length]);},5000);}
+  loopLcc();
+
+  // Light up the process line when it scrolls into view
+  new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('lit');o.unobserve(e.target);}}),{threshold:.5}).observe(document.getElementById('steps'));
 
   // Count up the numbers once they scroll into view (final values are already in the HTML)
   if(!reduce){
