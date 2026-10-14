@@ -164,6 +164,8 @@ window.FYE_NL = {
 "Concept by Valerie Kemunto, Teodor Popov, Kady Shidime, Hootan Maat, Virág Csikai and Roy · Landscape photos: Unsplash":"Concept door Valerie Kemunto, Teodor Popov, Kady Shidime, Hootan Maat, Virág Csikai en Roy · Landschapsfoto's: Unsplash",
 "Highlight placeholders":"Markeer placeholders","Close ✕":"Sluiten ✕",
 // labels and descriptions
+"A mural residents chose":"Een muurschildering gekozen door bewoners",
+"Seating and e-bike charging come from the case. Greenery and a mural chosen by residents are further illustrative examples.":"Zitplekken en e-bike-laden komen uit de case. Groen en een muurschildering gekozen door bewoners zijn extra voorbeelden ter illustratie.",
 "partner schools, from MBO to university":"partnerscholen, van mbo tot universiteit",
 "partner organisations from the energy sector and the region":"partnerorganisaties uit de energiesector en de regio",
 "One programme across seven schools, from MBO to university.":"Eén programma op zeven scholen, van mbo tot universiteit.",
