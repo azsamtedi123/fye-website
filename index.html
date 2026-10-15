@@ -663,6 +663,13 @@ body.menu-open .brand{opacity:1!important;transform:none!important;pointer-event
   .head-in{min-height:64px}
 }
 
+/* Projects head: two tilted photos, one per case */
+.duo{position:relative;height:clamp(320px,34vw,480px)}
+.duo .head-shot{position:absolute;width:62%;aspect-ratio:4/5;max-height:none}
+.duo .d1{left:0;top:0;transform:rotate(-4deg)}
+.duo .d2{right:0;bottom:0;transform:rotate(3deg)}
+@media (max-width:820px){.duo{height:auto;display:grid;grid-template-columns:1fr 1fr;gap:12px}.duo .head-shot{position:static;width:auto;aspect-ratio:4/5;transform:none}}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
 }
@@ -1312,13 +1319,14 @@ body.menu-open .brand{opacity:1!important;transform:none!important;pointer-event
 
 <!-- ============ PROJECTS ============ -->
 <div class="view" data-view="projects" hidden>
-  <section class="page-head filmhead">
+  <section class="page-head photo filmhead">
     <div class="wrap">
       <div class="stack ph-copy">
       <p class="eyebrow">Projects</p>
       <h1 class="h-xl mix" style="max-width:14ch">Real challenges, from <b>real partners.</b></h1>
       <p class="lede">A challenge from an organisation becomes a starting point for fresh thinking, practical learning and collaboration with emerging talent.</p>
       </div>
+      <div class="duo" aria-hidden="true"><div class="shot head-shot d1"><img src="img/substation.jpg" alt=""></div><div class="shot head-shot d2"><img src="img/team-8.jpg" alt=""></div></div>
     </div>
     <div class="film" aria-hidden="true"><div class="film-track"><img src="img/team-4.jpg" alt="" loading="lazy"><img src="img/team-8.jpg" alt="" loading="lazy"><img src="img/substation.jpg" alt="" loading="lazy"><img src="img/team-6.jpg" alt="" loading="lazy"><img src="img/team-2.jpg" alt="" loading="lazy"><img src="img/team-12.jpg" alt="" loading="lazy"><img src="img/team-9.jpg" alt="" loading="lazy"><img src="img/team-3.jpg" alt="" loading="lazy"><img src="img/team-4.jpg" alt="" loading="lazy"><img src="img/team-8.jpg" alt="" loading="lazy"><img src="img/substation.jpg" alt="" loading="lazy"><img src="img/team-6.jpg" alt="" loading="lazy"><img src="img/team-2.jpg" alt="" loading="lazy"><img src="img/team-12.jpg" alt="" loading="lazy"><img src="img/team-9.jpg" alt="" loading="lazy"><img src="img/team-3.jpg" alt="" loading="lazy"></div></div>
   </section>
